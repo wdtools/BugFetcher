@@ -316,8 +316,9 @@ class BugFetcherApp:
         if response.status_code == 200:
             # 从返回的 JSON 中提取 bugs 字段
             bugs = response.json().get("bugs", [])
+            self.log_message(f"获取到的Bug数量: {len(bugs)}")
             # 筛选指派给当前用户的未解决的 bug
-            unresolved_bugs = [bug for bug in bugs if bug['status'] != 'resolved' and bug['assignedTo']['realname'] == self.user_realname.get()]
+            unresolved_bugs = [bug for bug in bugs if bug['status'] != 'resolved' and bug['assignedTo']['account'] == self.zentao_username_value]
             self.log_message(f"未解决的Bug数量: {len(unresolved_bugs)}")
             if unresolved_bugs:
                 self.send_to_feishu(unresolved_bugs)

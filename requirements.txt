@@ -1,6 +1,2 @@
-tkinter
 requests
-json
 datetime
-threading
-os

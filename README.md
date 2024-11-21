@@ -57,6 +57,10 @@ BugFetcher 是一个定时自动从禅道获取指派给你的未解决的 bug �
     pyinstaller BugFetcher.spec
     ```
 
+    ```bash
+    pyinstaller --noconfirm --onefile --windowed --icon=icons.icns -p /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages BugFetcher.py
+    ```
+
 2. 打包完成后，在 `dist` 目录下会生成可执行文件。
 
 ## 使用 py2app 打包
